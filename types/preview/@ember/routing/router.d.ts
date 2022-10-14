@@ -44,6 +44,6 @@ declare module '@ember/service' {
   import RouterService from '@ember/routing/router-service';
 
   interface Registry {
-    router: RouterService;
+    router: typeof RouterService;
   }
 }

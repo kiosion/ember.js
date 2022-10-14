@@ -107,6 +107,7 @@ import './@ember/runloop/-private/types';
 import './@ember/runloop/types';
 
 import './@ember/service';
+import './@ember/service/owner-ext';
 
 import './@ember/string';
 

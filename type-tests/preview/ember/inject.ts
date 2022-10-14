@@ -13,7 +13,7 @@ class ApplicationController extends Ember.Controller {
 
 declare module '@ember/service' {
   interface Registry {
-    auth: AuthService;
+    auth: typeof AuthService;
   }
 }
 

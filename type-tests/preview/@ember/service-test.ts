@@ -16,8 +16,8 @@ const SecondSvc = Service.extend({
 
 declare module '@ember/service' {
   interface Registry {
-    first: FirstSvc;
-    second: InstanceType<typeof SecondSvc>;
+    first: typeof FirstSvc;
+    second: typeof SecondSvc;
   }
 }
 
@@ -32,3 +32,11 @@ class FooService extends EmberObject {
   @service('first') declare baz: FirstSvc;
   @service declare bar: FirstSvc;
 }
+
+import type Owner from '@ember/owner';
+import { expectTypeOf } from 'expect-type';
+declare let owner: Owner;
+expectTypeOf(owner.lookup('service:first')).toEqualTypeOf<FirstSvc>();
+
+let fm = owner.factoryFor('service:first');
+fm.create({ foo: 'blah' });

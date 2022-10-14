@@ -3,7 +3,10 @@ declare module '@ember/owner' {
    * The name for a factory consists of a namespace and the name of a specific
    * type within that namespace, like `'service:session'`.
    */
-  export type FullName = `${string}:${string}`;
+  export type FullName<
+    Type extends string = string,
+    Name extends string = string
+  > = `${Type}:${Name}`;
 
   // TODO: when migrating into Ember proper, evaluate whether we should introduce
   // a registry which users can provide to resolve known types, so e.g.

@@ -16,7 +16,7 @@ class SessionService extends Ember.Service {
 
 declare module '@ember/service' {
   interface Registry {
-    session: SessionService;
+    session: typeof SessionService;
   }
 }
 
